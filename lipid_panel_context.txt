@@ -1,0 +1,5 @@
+A lipid panel measures certain the amount of different fat molecules in blood including cholesterol and tryglicerides. These are tested for buildup that can lead to cardiovascular problems if these values are too high. This is usually a routine test, but can be done to diagnose liver disease, pancreatitis, chronic kidney disease, and hypothyroidism.
+Total cholesterol is a patient's overall cholesterol level. A normal range is between 150 to 199 mg/dL.
+Low-density lipoprotein cholesterol or LDL is considered bad cholesterol and can collect in blood vessels and increase risk of cardiovascular disease. This should normally be below 130 mg/dL.
+High-density lipoprotein cholesterol or HDL is considered good cholesterol and can help decrease the buildup of LDL in blood vessels. This should normally be greater than 40 mg/dL.
+Tryglicerides are a type of fat gotten from eating food. Excess amounts of it are associated with cardiovascular disease and pancreatic inflammation. A normal value of this is under 150 mg/dL. A borderline range is between 150 and 199 mg/dL. A high range is between 200 and 499 mg/dL. A very high value is above 500 mg/dL.
