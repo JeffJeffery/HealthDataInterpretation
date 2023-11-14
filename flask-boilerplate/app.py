@@ -43,6 +43,7 @@ tests = [
     {
         "test": "Lipid Panel",
         "date": "10/10/23",
+        "testId": 0,
         "results": [
             {
             "name": "Total Cholesterol",
@@ -79,6 +80,7 @@ tests = [
     {
         "test": "Hemoglobin A1C",
         "date": "10/10/23",
+        "testId": 1,
         "results": [
             {
             "name": "Hemoglobin A1C",
@@ -90,6 +92,7 @@ tests = [
     {
         "test": "HSV TYPE 2 SPECIFIC ANTIBODY, IGG",
         "date": "10/10/23",
+        "testId": 2,
         "results": [
             {
             "name": "Herpes Simplex Virus 2 IgG",
