@@ -5,7 +5,7 @@ openai.api_key = OPENAI_API_KEY
 file=open("context.txt","r")
 context = "".join(file.readlines())
 
-prompt = "Provide information on when each test was conducted and the frequency of these tests. Explain why each test was administered. Include info on the medical necessity and relevance of each test. Compare the patient's test results to the normal range and include the potential impact of any deviations to the norm on the patient's health."
+prompt = "Provide information on when each test was conducted and the frequency of these tests. Explain why each test was administered. Include info on the medical necessity and relevance of each test. Include the potential impact of any deviations to the norm on the patient's health."
 
 def demo():
     # Step 1: send the conversation and available functions to GPT  
