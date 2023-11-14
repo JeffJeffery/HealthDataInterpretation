@@ -57,7 +57,7 @@ tests = [
             },
             {
             "name": "Triglycerides",
-            "ne: 0.00 - 150.00 mg/dLormal": "Normal valu",
+            "normal": "Normal value: 0.00 - 150.00 mg/dL",
             "value": 90
             },
             {
