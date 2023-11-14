@@ -39,6 +39,11 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
+patientInformation = {
+    "age": 35,
+    "gender": "Male"
+}
+
 tests = [
     {
         "test": "Lipid Panel",
@@ -52,7 +57,7 @@ tests = [
             },
             {
             "name": "Triglycerides",
-            "normal": "Normal value: 0.00 - 150.00 mg/dL",
+            "ne: 0.00 - 150.00 mg/dLormal": "Normal valu",
             "value": 90
             },
             {
