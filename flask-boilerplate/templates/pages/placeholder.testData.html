@@ -1,0 +1,23 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Tests{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>{{data.test}}</h1>
+</div>
+<div class="columns">
+<ul class="resultsListContainer">
+  {% for item in data["results"] %}
+      <li class="resultBlock">
+        <div class="staticResultPair">
+          <div class="resultName">{{item["name"]}}</div>
+          <div class="resultNormal">Normal: {{item["normal"]}}</div>
+        </div>
+        <div class="resultValue">Value: {{item["value"]}}</div>
+      </li>
+  {% endfor %}
+</ul>
+<p class="additionalInformaion"> Additional Information: <br>  {{info}}</p>
+</div>
+
+{% endblock %}

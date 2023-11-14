@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Tests{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Tests</h1>
+</div>
+<ul class="listContainer">
+  {% for item in range(len) %}
+  <a href = "{{ url_for('testData', test_index=item)}}">
+      <li class="testBlock" >
+        <div class="testInformation">{{tests[item]["test"]}}</div>
+        <div class="testDate">{{tests[item]["date"]}}</div>
+      </li>
+  </a>
+  {% endfor %}
+</ul>
+
+{% endblock %}
