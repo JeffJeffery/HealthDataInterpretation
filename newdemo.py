@@ -5,45 +5,59 @@ openai.api_key = OPENAI_API_KEY
 
 test_type = [
     {
-        "name": "lipid panel",
+        "name": "Lipid Panel",
         "contextFile": "lipid_panel_context.txt",
         "subTests": [
             {
-                "name": "total cholesterol",
+                "name": "Total Cholesterol",
                 "shortened": "tc",
                 "rangeFlag": 1,
                 "rangeHigh": 199,
                 "rangeLow": 150 
             },
             {
-                "name": "low-density lipoprotein cholesterol",
-                "shortened": "ldl",
+                "name": "Triglycerides",
+                "shortened": "triglycerides",
                 "rangeFlag": 1,
-                "rangeHigh": 130,
+                "rangeHigh": 150,
                 "rangeLow": 0 
             },
             {
-                "name": "high-density lipoprotein cholesterol",
+                "name": "HDL Cholesterol",
                 "shortened": "hdl",
                 "rangeFlag": 1,
                 "rangeHigh": np.inf,
                 "rangeLow": 40 
             },
             {
-                "name": "triglycerides",
-                "shortened": "triglycerides",
+                "name": "LDL Cholesterol",
+                "shortened": "ldl",
                 "rangeFlag": 1,
-                "rangeHigh": 150,
+                "rangeHigh": 130,
+                "rangeLow": 0 
+            },
+            {
+                "name": "Non-HDL Cholesterol",
+                "shortened": "non-hdl",
+                "rangeFlag": 0,
+                "rangeHigh": "none",
+                "rangeLow": "none"
+            },
+            {
+                "name": "CHOL/HDL Ratio",
+                "shortened": "CHOL/HDL Ratio",
+                "rangeFlag": 1,
+                "rangeHigh": 5,
                 "rangeLow": 0 
             }
         ]        
     },
     {
-        "name": "hemoglobin a1c",
+        "name": "Hemoglobin A1C",
         "contextFile": "hemoglobin_a1c_context.txt",
         "subTests": [
             {
-                "name": "hemoglobin a1c",
+                "name": "Hemoglobin A1C",
                 "shortened": "HbA1c",
                 "rangeFlag": 1,
                 "rangeHigh": 8.5,
@@ -61,6 +75,23 @@ def demo(data):
     context_file_name = test_type[data["testId"]]["contextFile"]
     file=open(context_file_name,"r")
     context = "".join(file.readlines())
+    for x in data["results"]:
+        name = x["name"]
+        value = x["value"]
+        rangeFlag = 0
+        rangeHigh = 0
+        rangeLow = 0
+        for y in test_type[data["testId"]]["subTests"]:
+            if (y["name"] == name):
+                rangeFlag = y["rangeFlag"]
+                rangeHigh = y["rangeHigh"]
+                rangeLow = y["rangeLow"]
+        context += "The patient's value for " + name +  " is " +str(value) + "."
+        if(rangeFlag == 1):
+            if(value > rangeHigh):
+                context += "The patient's range for " + name + " is high."
+            if(value < rangeLow):
+                context += "The patient's range for " + name + " is low."
 
     # Step 1: send the conversation and available functions to GPT  
     messages = [{"role": "system", "content": "You are ChartChat the helpful patient data bot."},
