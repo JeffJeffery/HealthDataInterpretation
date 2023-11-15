@@ -109,8 +109,8 @@ def demo(data):
     )
     response_message = response["choices"][0]["message"]
     return response_message
-response_message = demo()
-print(response_message)
+# response_message = demo()
+# print(response_message)
 with open('history.txt', 'a') as f:
     writeList = ['\nPrompt: ', prompt, "\nContext: ", context, '\n', "Response: ", response_message["content"], '\n']
     f.writelines(writeList)
