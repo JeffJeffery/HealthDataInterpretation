@@ -69,8 +69,7 @@ test_type = [
 
 
 
-prompt = "Provide information on when each test was conducted and the frequency of these tests. Explain why each test was administered. Include info on the medical necessity and relevance of each test. Include the potential impact of any deviations to the norm on the patient's health."
-
+prompt = "Provide information on when each test was conducted and the frequency of these tests. Explain why each test was administered. Include info on the medical necessity and relevance of each test. Given, the patient's value and whether it is high, low, or within the range, include the potential impact of any deviations to the norm on the patient's health. Do not assume whether the patient's value is high or low; only use the information given"
 def demo(data):
     context_file_name = test_type[data["testId"]]["contextFile"]
     file=open(context_file_name,"r")
@@ -89,18 +88,24 @@ def demo(data):
         context += "The patient's value for " + name +  " is " +str(value) + "."
         if(rangeFlag == 1):
             if(value > rangeHigh):
-                context += "The patient's range for " + name + " is high."
-            if(value < rangeLow):
-                context += "The patient's range for " + name + " is low."
+                context += "The patient's value for " + name + " is high."
+            elif(value < rangeLow):
+                context += "The patient's value for " + name + " is low."
+            else:
+                 context += "The patient's value for " + name + " is within the range."
 
     # Step 1: send the conversation and available functions to GPT  
     messages = [{"role": "system", "content": "You are ChartChat the helpful patient data bot."},
                 {"role": "assistant", "content": context},
-                {"role": "user", "content": prompt}]
+                {"role": "user", "content": prompt},
+                {"role": "assistant", "content": "if explaining a definition, answer using 1 global metaphor"},
+                {"role": "assistant", "content": "answer where a young adult can understand"},
+                {"role": "assistant", "content": "answer in paragraph format and use less than 250 words."}]
+    response = openai.ChatCompletion.create(
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k-0613",
         messages=messages,
-        frequency_penalty = .08
+        temperature = 0.2
     )
     response_message = response["choices"][0]["message"]
     return response_message
