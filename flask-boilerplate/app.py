@@ -7,6 +7,7 @@ from flask import Flask, render_template, request
 import logging
 from logging import Formatter, FileHandler
 import os
+import newdemo
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -115,7 +116,7 @@ tests = [
 
 def getInfo(data):
     #will be used to call chatGPT but for now it is just gonna have some words
-    return "I am chartchat and I am answering things"
+    return demo(data)
 
 @app.route('/')
 def home():
