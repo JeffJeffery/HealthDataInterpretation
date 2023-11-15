@@ -116,7 +116,7 @@ tests = [
 
 def getInfo(data):
     #will be used to call chatGPT but for now it is just gonna have some words
-    return demo(data)
+    return newdemo.demo(data)
 
 @app.route('/')
 def home():

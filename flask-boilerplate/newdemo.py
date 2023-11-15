@@ -6,7 +6,7 @@ openai.api_key = OPENAI_API_KEY
 test_type = [
     {
         "name": "Lipid Panel",
-        "contextFile": "lipid_panel_context.txt",
+        "contextFile": "/lipid_panel_context.txt",
         "subTests": [
             {
                 "name": "Total Cholesterol",
@@ -72,7 +72,7 @@ test_type = [
 prompt = "Provide information on when each test was conducted and the frequency of these tests. Explain why each test was administered. Include info on the medical necessity and relevance of each test. Given, the patient's value and whether it is high, low, or within the range, include the potential impact of any deviations to the norm on the patient's health. Do not assume whether the patient's value is high or low; only use the information given"
 def demo(data):
     context_file_name = test_type[data["testId"]]["contextFile"]
-    file=open(context_file_name,"r")
+    file=open("flask-boilerplate/"+context_file_name,"r")
     context = "".join(file.readlines())
     for x in data["results"]:
         name = x["name"]
@@ -102,16 +102,15 @@ def demo(data):
                 {"role": "assistant", "content": "answer where a young adult can understand"},
                 {"role": "assistant", "content": "answer in paragraph format and use less than 250 words."}]
     response = openai.ChatCompletion.create(
-    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k-0613",
         messages=messages,
         temperature = 0.2
     )
     response_message = response["choices"][0]["message"]
-    return response_message
-# response_message = demo()
-# print(response_message)
-with open('history.txt', 'a') as f:
-    writeList = ['\nPrompt: ', prompt, "\nContext: ", context, '\n', "Response: ", response_message["content"], '\n']
-    f.writelines(writeList)
-f.close()
+    # response_message = demo()
+    # print(response_message)
+    with open('history.txt', 'a') as f:
+        writeList = ['\nPrompt: ', prompt, "\nContext: ", context, '\n', "Response: ", response_message["content"], '\n']
+        f.writelines(writeList)
+    f.close()
+    return response_message["content"]
