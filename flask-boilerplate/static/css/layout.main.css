@@ -56,8 +56,6 @@ code {
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-  min-width: 1280px;
-  width: 100%;
   overflow-y: scroll;  
   list-style: outside none none;
   padding: 0 0;
@@ -131,13 +129,10 @@ a:active
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-  min-width: 1280px;
-  width: 100%;
   overflow-y: scroll;  
   list-style: outside none none;
   padding: 0 0;
-  max-width: 10px;
- 
+  
 }
 
 
@@ -170,4 +165,7 @@ a:active
 }
 
 
+.info {
+  margin-bottom: 5px;
+}
 

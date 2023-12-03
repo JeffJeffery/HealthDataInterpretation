@@ -17,7 +17,12 @@
       </li>
   {% endfor %}
 </ul>
-<p class="additionalInformaion"> Additional Information: <br>  {{info}}</p>
+<p class="additionalInformaion"> Additional Information from ChartChat: 
+  {% for item in info %}
+  <div class="info"> {{item}} </div>
+  {% endfor %}
+  
+</p>
 </div>
 
 {% endblock %}

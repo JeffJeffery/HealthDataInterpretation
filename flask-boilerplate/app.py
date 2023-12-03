@@ -53,7 +53,7 @@ tests = [
         "results": [
             {
             "name": "Total Cholesterol",
-            "normal": "Normal Range: 0 - 199 mg/dl",
+            "normal": "Normal Range: 150 - 199 mg/dl",
             "value": 125
             },
             {
@@ -63,12 +63,7 @@ tests = [
             },
             {
             "name": "HDL Cholesterol",
-            "normal": "Normal range: above >40 mg/dL",
-            "value": 50
-            },
-            {
-            "name": "HDL Cholesterol",
-            "normal": "Normal range: above >40 mg/dL",
+            "normal": "Normal range: above 40 mg/dL",
             "value": 50
             },
             {
@@ -90,7 +85,7 @@ tests = [
         "results": [
             {
             "name": "Hemoglobin A1C",
-            "normal": "Normal value: 0 - 5.6 %",
+            "normal": "Normal value: 4.7 - 8.5 %",
             "value": 4.9
             }
         ]
@@ -116,8 +111,8 @@ tests = [
 
 def getInfo(data):
     #will be used to call chatGPT but for now it is just gonna have some words
-    return newdemo.demo(data)
-
+    return newdemo.demo(data).split("\n")
+   
 @app.route('/')
 def home():
     return render_template('pages/placeholder.home.html', tests=tests, len=len(tests))
