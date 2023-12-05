@@ -53,27 +53,27 @@ tests = [
         "results": [
             {
             "name": "Total Cholesterol",
-            "normal": "Normal Range: 150 - 199 mg/dl",
+            "normal": "150 - 199 mg/dl",
             "value": 125
             },
             {
             "name": "Triglycerides",
-            "normal": "Normal value: 0.00 - 150.00 mg/dL",
+            "normal": "0.00 - 150.00 mg/dL",
             "value": 90
             },
             {
             "name": "HDL Cholesterol",
-            "normal": "Normal range: above 40 mg/dL",
+            "normal": "above 40 mg/dL",
             "value": 50
             },
             {
             "name": "Non-HDL Cholesterol",
-            "normal": "A reasonable goal for non-HDL cholesterol is one that is 30 mg/dL higher than the LDL cholesterol goal.",
+            "normal": "30 mg/dL above LDL",
             "value": 75
             },
             {
             "name": "CHOL/HDL Ratio",
-            "normal": "Normal range: 0.0 - 5.0",
+            "normal": "0.0 - 5.0",
             "value": 2.5
             }
         ]
@@ -85,7 +85,7 @@ tests = [
         "results": [
             {
             "name": "Hemoglobin A1C",
-            "normal": "Normal value: 4.7 - 8.5 %",
+            "normal": "4.7 - 8.5 %",
             "value": 4.9
             }
         ]
@@ -97,12 +97,12 @@ tests = [
         "results": [
             {
             "name": "Herpes Simplex Virus 2 IgG",
-            "normal": "Normal value: Negative",
+            "normal": "Negative",
             "value": "Negative"
             },
             {
             "name": "Herpes Simples Virus 2 IgG, Quant",
-            "normal": "Normal value: 0.0 - 0.8 AI",
+            "normal": "0.0 - 0.8 AI",
             "value": "<0.2"
             }
         ]
